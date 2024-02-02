@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import axios from "axios";
 
 export default function Home() {
-  const [location, setLocation] = useState([35.20472109, -114.0534769]);
+  const [location, setLocation] = useState([]);
   const [radius, setRadius] = useState();
   const [foodTrucks, setFoodTrucks] = useState([]);
   console.log(location, radius, foodTrucks);
@@ -28,7 +28,6 @@ export default function Home() {
 
   useEffect(() => {
     axios.get("https://ipapi.co/json/").then((response) => {
-      console.log(response.data);
       setLocation([response.data.latitude, response.data.longitude]);
     })
       .catch((error) => {
